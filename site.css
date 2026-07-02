@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #000000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --galaxy-edge-length: 98em;
+  --sun-edge-length: 10em;
+  --neptune-edge-length: 96em;
+  --uranus-edge-length: 88em;
+  --saturn-edge-length: 79em;
+  --jupiter-edge-length: 66em;
+  --mars-edge-length: 54em;
+  --earth-edge-length: 45em;
+  --venus-edge-length: 32em;
+  --mercury-edge-length: 20em;
+}
+
+main {
+  width: var(--galaxy-edge-length);
+  height: var(--galaxy-edge-length);
+  margin: auto;
+  font-size: 10px;
+  position: relative;
+}
+
+.sun,
+.mercury,
+.venus,
+.earth,
+.mars,
+.jupiter,
+.saturn,
+.uranus,
+.neptune {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.mercury::before,
+.venus::before,
+.earth::before,
+.mars::before,
+.jupiter::before,
+.saturn::before,
+.uranus::before,
+.neptune::before {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+}
+
+.sun {
+  width: var(--sun-edge-length);
+  height: var(--sun-edge-length);
+  background-color: yellow;
+  top: calc((var(--galaxy-edge-length) / 2) - (var(--sun-edge-length) / 2));
+  left: calc((var(--galaxy-edge-length) / 2) - (var(--sun-edge-length) / 2));
+  box-shadow: 0 0 3em 0 white;
+}
+
+.neptune {
+  width: var(--neptune-edge-length);
+  height: var(--neptune-edge-length);
+  top: calc(
+    (var(--galaxy-edge-length) / 2) - (var(--neptune-edge-length) / 2)
+  );
+  left: calc(
+    (var(--galaxy-edge-length) / 2) - (var(--neptune-edge-length) / 2)
+  );
+  animation: orbit 120s linear infinite;
+}
+
+.uranus {
+  width: var(--uranus-edge-length);
+  height: var(--uranus-edge-length);
+  top: calc((var(--galaxy-edge-length) / 2) - (var(--uranus-edge-length) / 2));
+  left: calc(
+    (var(--galaxy-edge-length) / 2) - (var(--uranus-edge-length) / 2)
+  );
+  animation: orbit 110s linear infinite;
+}
+
+.saturn {
+  width: var(--saturn-edge-length);
+  height: var(--saturn-edge-length);
+  top: calc((var(--galaxy-edge-length) / 2) - (var(--saturn-edge-length) / 2));
+  left: calc((var(--galaxy-edge-length) / 2) - (var(--saturn-edge-length) / 2));
+  animation: orbit 91s linear infinite;
+}
+
+.jupiter {
+  width: var(--jupiter-edge-length);
+  height: var(--jupiter-edge-length);
+  top: calc(
+    (var(--galaxy-edge-length) / 2) - (var(--jupiter-edge-length) / 2)
+  );
+  left: calc(
+    (var(--galaxy-edge-length) / 2) - (var(--jupiter-edge-length) / 2)
+  );
+  animation: orbit 79s linear infinite;
+}
+
+.mars {
+  width: var(--mars-edge-length);
+  height: var(--mars-edge-length);
+  top: calc((var(--galaxy-edge-length) / 2) - (var(--mars-edge-length) / 2));
+  left: calc((var(--galaxy-edge-length) / 2) - (var(--mars-edge-length) / 2));
+  animation: orbit 68.7s linear infinite;
+}
+
+.earth {
+  width: var(--earth-edge-length);
+  height: var(--earth-edge-length);
+  top: calc((var(--galaxy-edge-length) / 2) - (var(--earth-edge-length) / 2));
+  left: calc((var(--galaxy-edge-length) / 2) - (var(--earth-edge-length) / 2));
+  animation: orbit 36.5s linear infinite;
+}
+
+.venus {
+  width: var(--venus-edge-length);
+  height: var(--venus-edge-length);
+  top: calc((var(--galaxy-edge-length) / 2) - (var(--venus-edge-length) / 2));
+  left: calc((var(--galaxy-edge-length) / 2) - (var(--venus-edge-length) / 2));
+  animation: orbit 22.4s linear infinite;
+}
+
+.mercury {
+  width: var(--mercury-edge-length);
+  height: var(--mercury-edge-length);
+  top: calc((var(--galaxy-edge-length) / 2) - (var(--mercury-edge-length) / 2));
+  left: calc((var(--galaxy-edge-length) / 2) - (var(--mercury-edge-length) / 2));
+  animation: orbit 8.8s linear infinite;
+}
+
+.earth::before {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: aqua;
+  left: calc(var(--earth-edge-length) / 2);
+  top: calc(-2.5em / 2);
+}
+
+.venus::before {
+  width: 2.2em;
+  height: 2.2em;
+  background-color: #ffffa7;
+  left: calc(var(--venus-edge-length) / 2);
+  top: calc(-2.2em / 2);
+}
+
+.mercury::before {
+  width: 1.2em;
+  height: 1.2em;
+  background-color: gray;
+  left: calc(var(--mercury-edge-length) / 2);
+  top: calc(-1.2em / 2);
+}
+
+.mars::before {
+  width: 1.9em;
+  height: 1.9em;
+  background-color: red;
+  left: calc(var(--mars-edge-length) / 2);
+  top: calc(-1.9em / 2);
+}
+
+.jupiter::before {
+  width: 5.5em;
+  height: 5.5em;
+  background-image: linear-gradient(white, red, orange, brown);
+  left: calc(var(--jupiter-edge-length) / 2);
+  top: calc(-5.5em / 2);
+}
+
+.saturn::before {
+  width: 4em;
+  height: 4em;
+  background-image: linear-gradient(
+    #ffffa7, cyan, orangered, yellow, orangered, cyan, #ffffa7
+  );
+  left: calc(var(--saturn-edge-length) / 2);
+  top: calc(-4em / 2);
+}
+
+.uranus::before {
+  width: 3em;
+  height: 3em;
+  background-color: #90ee90;
+  left: calc(var(--uranus-edge-length) / 2);
+  top: calc(-3em / 2);
+}
+
+.neptune::before {
+  width: 2.8em;
+  height: 2.8em;
+  background-color: #0d98ba;
+  left: calc(var(--neptune-edge-length) / 2);
+  top: calc(-2.8em / 2);
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(-360deg);
+  }
+}
